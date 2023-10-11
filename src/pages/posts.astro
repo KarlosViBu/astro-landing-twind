@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+const reponse = await fetch("https://jsonplaceholder.typicode.com/posts")
+const posts = await reponse.json()
+---
+<!-- console.log(posts); -->
+
+<Layout title="Posts">
+<h1>Mis publicaciones</h1>
+{
+   posts.map((post) => (
+      <div>
+         <h5 style="color:burlywood;">{ post.userId } / { post.id }</h5>
+         <h3 class="title">{ post.title }</h3>
+         <p class="default"> { post.body }</p>
+
+      </div>
+   ))
+}
+</Layout>

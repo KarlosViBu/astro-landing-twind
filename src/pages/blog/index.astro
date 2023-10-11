@@ -1,0 +1,13 @@
+---
+import Layout from '../../layouts/Layout.astro'
+const posts = await Astro.glob('./posts/*.md')
+---
+<Layout title='Blog'>
+   <h1 class="text-3xl mb-4">Blog</h1>
+   {
+      posts.map(post => {
+         return <a href={ post.url } class="link w-10 mx-4 py-1 px-3 hover:bg-yellow-500 justify-evenly">{ post.frontmatter.title }</a>
+      })
+   }
+</Layout>
+   

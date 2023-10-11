@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from '../components/Card.astro'
+
+const color1 = "title";
+const color2 = "alert";
+const color3 = "default";
+const hobbies = ["Programar", "Ver Peliculas", "Ver Musicales"];
+const isActive = true
+const isDoit = false
+---
+
+<Layout title="Servicios" description="Los Servicios que prestamos">
+<h1 class=`title`>Mis Servicios</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, aperiam.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, aperiam.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, aperiam.</p>
+
+<h2 class=`${color2}`>Hobbies</h2>
+
+<ul>
+  {
+    // hobbies.map((hobby) => "Me gusta " + hobbie )
+    hobbies.map((hobby) => 
+      <li>
+         <h3> {hobby} </h3>
+         <button class="button">Like</button>
+      </li>)
+  }
+</ul>
+<h3 class="alert">{ isActive }</h3>
+<h3 class="alert">Servicio : { isActive ? "Disponible" : "Inactivo" }</h3>
+<h3 class="default">Elaborado : { isDoit && "Ok" }</h3>
+<hr>
+<h1 class="title">Mis Productos</h1>
+<p class="default">Estos son algunos</p>
+<Card  title='Producto 1' body='Este es el producto 1'></Card>
+<Card  title='Producto 2' body='Este es el producto 2'></Card>
+<Card  title='Producto 3' body='Este es el producto 3'></Card>
+<Card  title='Producto 4' body='Este es el producto 4'></Card>
+<Card  title='Producto 5' body='Este es el producto 5'></Card>
+
+</Layout>
